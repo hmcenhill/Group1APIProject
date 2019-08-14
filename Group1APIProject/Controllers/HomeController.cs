@@ -5,17 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Group1APIProject.Models;
+using Microsoft.AspNetCore.Http;
+using System.Net.Http;
 
 namespace Group1APIProject.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ISession _session;
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public HomeController(IHttpContextAccessor httpContextAccessor, IHttpClientFactory httpClientFactory)
         {
-            return View();
+            _session = httpContextAccessor.HttpContext.Session;
+            _httpClientFactory = httpClientFactory;
         }
 
-        public IActionResult Privacy()
+        public IActionResult Index()
         {
             return View();
         }
