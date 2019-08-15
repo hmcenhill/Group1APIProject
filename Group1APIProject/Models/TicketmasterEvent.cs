@@ -5,5 +5,9 @@ using System.Threading.Tasks;
 
 namespace Group1APIProject.Models
 {
+    public class TicketmasterEvent
+    {
+
+    }
 
 }

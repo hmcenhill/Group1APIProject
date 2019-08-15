@@ -9,8 +9,8 @@ namespace Group1APIProject.Models
     {
         public int UserDataID { get; set; }
         public string UserName { get; set; }
-        public ICollection<int> FavoriteRecipeIds { get; set; }
-        public ICollection<int> FavoriteEventIds { get; set; }
+        public ICollection<RecipeFavorite> RecipeFavorites { get; set; }
 
+        //public ICollection<TicketmasterEventFavorite> TicketmasterEventFavorites { get; set; }
     }
 }
