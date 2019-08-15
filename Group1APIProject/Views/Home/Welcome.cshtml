@@ -1,0 +1,55 @@
+﻿@model UserData
+                <!--Greet user below-->
+<h1>Hello </h1>
+
+<div>
+    <form asp-controller="Recipe" asp-action="Favorites" method="get">
+        <p>
+            View favorites here:
+            <div>
+                @Html.ActionLink("Favorites", "Recipe")
+            </div>
+        </p>
+    </form>
+</div>
+<div>
+    <form asp-controller="Recipe" asp-action="VeganFoods" method="get">
+        <p>
+            Search all Vegan recipes here:
+            <div>
+                @Html.ActionLink("VeganFoods", "Recipe")
+            </div>
+        </p>
+    </form>
+</div>
+<div>
+    <form asp-controller="Recipe" asp-action="SearchByIngredients" method="get">
+        <p>
+            Search a recipe by Ingredients here:
+            <div>
+                <input type="text" placeholder="Enter Ingredients Here" name="Ingredient">
+                <input type="submit" value="Search" />
+            </div>
+        </p>
+    </form>
+</div>
+<div>
+    <form asp-controller="Recipe" asp-action="SearchByCategory" method="get">
+        <p>
+            Search a recipe by Ingredients here:
+            <div>
+                <!--Maybe a dropdown of categories-->
+                <input type="text" placeholder="Enter Food Cateogory Here" name="Category">
+                <input type="submit" value="Search" />
+            </div>
+        </p>
+    </form>
+</div>
+<form asp-controller="Recipe" asp-action="Create" method="post">
+    <p>
+        <div>
+            Create a New Recipe Here:
+            @Html.ActionLink("Create", "Recipe")
+        </div>
+    </p>
+</form>
