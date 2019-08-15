@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Group1APIProject.Models;
 using Microsoft.AspNetCore.Http;
 using System.Net.Http;
+using Newtonsoft.Json;
+
 
 namespace Group1APIProject.Controllers
 {
