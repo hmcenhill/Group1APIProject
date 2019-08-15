@@ -22,7 +22,7 @@ namespace Group1APIProject.Controllers
             _session = httpContextAccessor.HttpContext.Session;
             _httpClientFactory = httpClientFactory;
         }
-
+        
         public IActionResult Index()
         {
             return View();
