@@ -13,13 +13,13 @@
         @foreach (var item in Model.Results)
         {
         <tr>
-            <td align="center">
-                <img src="@Url.Content(item.Thumbnail)" />
+            <td align="left">
+                <img src="@Url.Content(item.Thumbnail)"/>
             </td>
-            <td>
+            <td align="left">
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
+            <td align="left">
                 @Html.DisplayFor(modelItem => item.Ingredients)
             </td>
         </tr>
