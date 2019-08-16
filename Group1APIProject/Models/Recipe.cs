@@ -23,7 +23,7 @@ namespace Group1APIProject.Models
     //}
 
 
-    public class RecipeHeader
+    public class Recipe
     {
         public string Title { get; set; }
         public float Version { get; set; }

@@ -36,7 +36,7 @@ namespace Group1APIProject.Controllers
 
             var body = await response.Content.ReadAsStringAsync();
 
-            var content = JsonConvert.DeserializeObject<RecipeHeader>(body);
+            var content = JsonConvert.DeserializeObject<Recipe>(body);
 
             return View("SearchResult", content);
         }
