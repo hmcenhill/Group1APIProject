@@ -12,7 +12,7 @@ namespace Group1APIProject.Models
         { }
 
         public virtual DbSet<UserData> Users { get; set; }
-        public virtual DbSet<RecipeHeader> Recipes { get; set; }
+        public virtual DbSet<Recipe> Recipes { get; set; }
         public virtual DbSet<RecipeFavorite> RecipeFavorites { get; set; }
 
         //public virtual DbSet<TicketmasterEvent> TicketmasterEvents { get; set; }
