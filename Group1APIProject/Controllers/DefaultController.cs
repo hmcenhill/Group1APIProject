@@ -2,15 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Group1APIProject.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Group1APIProject.Controllers
 {
     public class DefaultController : Controller
     {
-        public IActionResult Index()
+        private readonly DataContext _context;
+
+        public DefaultController(DataContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateUser()
+        {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var userData = new UserData();
+                userData.UserName = User.Identity.Name;
+                _context.Add(userData);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }
