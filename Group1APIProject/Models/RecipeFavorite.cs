@@ -11,6 +11,7 @@ namespace Group1APIProject.Models
         public int UserDataId { get; set; }
         public UserData UserData { get; set; }
         public int ResultId { get; set; }
+        public Result Result { get; set; }
 
     }
 }

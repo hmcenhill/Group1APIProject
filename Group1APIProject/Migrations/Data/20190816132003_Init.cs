@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Group1APIProject.Migrations
+namespace Group1APIProject.Migrations.Data
 {
-    public partial class InitData : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Recipes",
+                name: "Result",
                 columns: table => new
                 {
-                    RecipeId = table.Column<int>(nullable: false)
+                    ResultId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Title = table.Column<string>(nullable: true),
                     Href = table.Column<string>(nullable: true),
@@ -20,7 +20,7 @@ namespace Group1APIProject.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Recipes", x => x.RecipeId);
+                    table.PrimaryKey("PK_Result", x => x.ResultId);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,7 +43,7 @@ namespace Group1APIProject.Migrations
                     RecipeFavoriteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     UserDataId = table.Column<int>(nullable: false),
-                    RecipeId = table.Column<int>(nullable: false)
+                    ResultId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -68,7 +68,7 @@ namespace Group1APIProject.Migrations
                 name: "RecipeFavorites");
 
             migrationBuilder.DropTable(
-                name: "Recipes");
+                name: "Result");
 
             migrationBuilder.DropTable(
                 name: "Users");

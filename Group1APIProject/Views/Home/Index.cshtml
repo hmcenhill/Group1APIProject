@@ -2,8 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">API Project</h1>
-    <p>Work with Recipe and Event APIs to build a small ASP.Net application</p>
-    <p><a href="http://www.recipepuppy.com/about/api/">Recipe Puppy</a> and <a href="https://developer.ticketmaster.com/products-and-docs/apis/getting-started/">Ticketmaster</a>.</p>
-</div>
+    <div class="text-center">
+        <h1 class="display-4">API Project</h1>
+        <p>Work with Recipe and Event APIs to build a small ASP.Net application</p>
+        <p>Built using <a href="http://www.recipepuppy.com/about/api/">Recipe Puppy</a>.</p>
+        @if (ViewBag.LoggedIn)
+        {
+            <p>Hello, @ViewBag.UID</p>
+            <p><a asp-controller="Recipe" asp-action="NewRecipe">Start a new Recipe Search</a></p>
+            <p><a asp-controller="RecipeFavorites" asp-action="Index">See my Favorites</a></p>
+        }
+        else
+        {
+            <p>Please <a asp-area="Identity" asp-page="/Account/Login">Login</a> or <a asp-area="Identity" asp-page="/Account/Register">Register</a></p>
+        }
+
+    </div>

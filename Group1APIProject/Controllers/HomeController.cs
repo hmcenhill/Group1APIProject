@@ -14,21 +14,21 @@ namespace Group1APIProject.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DataContext _context;
         private readonly ISession _session;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public HomeController(IHttpContextAccessor httpContextAccessor, IHttpClientFactory httpClientFactory)
+        public HomeController(IHttpContextAccessor httpContextAccessor, IHttpClientFactory httpClientFactory, DataContext context)
         {
+            _context = context;
             _session = httpContextAccessor.HttpContext.Session;
             _httpClientFactory = httpClientFactory;
         }
         
         public IActionResult Index()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                
-            }
+            ViewBag.LoggedIn = User.Identity.IsAuthenticated;
+            ViewBag.UID = User.Identity.Name;
             return View();
         }
 

@@ -21,11 +21,9 @@ namespace Group1APIProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateUser()
         {
-
             if (User.Identity.IsAuthenticated)
             {
-                var userData = new UserData();
-                userData.UserName = User.Identity.Name;
+                var userData = new UserData(User.Identity.Name);
                 _context.Add(userData);
                 await _context.SaveChangesAsync();
             }

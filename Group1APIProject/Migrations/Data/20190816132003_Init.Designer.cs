@@ -6,23 +6,40 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Group1APIProject.Migrations
+namespace Group1APIProject.Migrations.Data
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190815000040_InitData")]
-    partial class InitData
+    [Migration("20190816132003_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Group1APIProject.Models.Recipe", b =>
+            modelBuilder.Entity("Group1APIProject.Models.RecipeFavorite", b =>
                 {
-                    b.Property<int>("RecipeId")
+                    b.Property<int>("RecipeFavoriteId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ResultId");
+
+                    b.Property<int>("UserDataId");
+
+                    b.HasKey("RecipeFavoriteId");
+
+                    b.HasIndex("UserDataId");
+
+                    b.ToTable("RecipeFavorites");
+                });
+
+            modelBuilder.Entity("Group1APIProject.Models.Result", b =>
+                {
+                    b.Property<int>("ResultId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -34,26 +51,9 @@ namespace Group1APIProject.Migrations
 
                     b.Property<string>("Title");
 
-                    b.HasKey("RecipeId");
+                    b.HasKey("ResultId");
 
-                    b.ToTable("Recipes");
-                });
-
-            modelBuilder.Entity("Group1APIProject.Models.RecipeFavorite", b =>
-                {
-                    b.Property<int>("RecipeFavoriteId")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("RecipeId");
-
-                    b.Property<int>("UserDataId");
-
-                    b.HasKey("RecipeFavoriteId");
-
-                    b.HasIndex("UserDataId");
-
-                    b.ToTable("RecipeFavorites");
+                    b.ToTable("Result");
                 });
 
             modelBuilder.Entity("Group1APIProject.Models.UserData", b =>

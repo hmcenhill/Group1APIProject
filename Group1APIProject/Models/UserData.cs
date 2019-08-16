@@ -12,5 +12,10 @@ namespace Group1APIProject.Models
         public ICollection<RecipeFavorite> RecipeFavorites { get; set; }
 
         //public ICollection<TicketmasterEventFavorite> TicketmasterEventFavorites { get; set; }
+
+        public UserData(string userName)
+        {
+            UserName = userName;
+        }
     }
 }

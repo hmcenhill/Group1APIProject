@@ -22,6 +22,12 @@
             <td align="left">
                 @Html.DisplayFor(modelItem => item.Ingredients)
             </td>
+            <td align="left">
+                @using (Html.BeginForm("AddFavorite", "RecipeFavorites", new { title = item.Title, ing = item.Ingredients, pic = item.Thumbnail, link = item.Href }))
+                {
+                    <input class="button" type="submit" value="Add to Favorites" />
+                }
+            </td>
         </tr>
         }
     </tbody>
