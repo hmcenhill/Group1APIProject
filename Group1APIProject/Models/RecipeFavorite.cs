@@ -10,7 +10,7 @@ namespace Group1APIProject.Models
         public int RecipeFavoriteId { get; set; }
         public int UserDataId { get; set; }
         public UserData UserData { get; set; }
-        public int RecipeId { get; set; }
+        public int ResultId { get; set; }
 
     }
 }
