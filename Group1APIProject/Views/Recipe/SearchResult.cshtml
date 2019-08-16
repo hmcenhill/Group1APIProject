@@ -1,0 +1,14 @@
+﻿@model  RecipeHeader
+@{
+    ViewData["Title"] = "SearchResult";
+}
+
+<h1>SearchResult</h1>
+
+@foreach(var result in Model.Results)
+{
+<img src="@result.Thumbnail" />
+<p>@result.Title</p>
+<p>@result.Ingredients</p>
+}
+

@@ -1,0 +1,13 @@
+﻿@model RecipeHeader
+@{
+    ViewData["Title"] = "Recipe";
+}
+
+<h1>Recipe</h1>
+<form asp-controller="Recipe" asp-action="NewRecipe" method="post">
+    <p>
+        Recipe Search: <input type="text" name="search" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
