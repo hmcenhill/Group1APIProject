@@ -6,25 +6,15 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>RecipeFavorite</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserData)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserData.UserDataID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Result)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Result.ResultId)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.RecipeFavoriteId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+<dl class="row">
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Result.Title)
+    </dd>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Result.Ingredients)
+    </dd>
+    <dd >
+    <a href="@Url.Content(Model.Result.Href)">How to make it</a>
+    </dd>
+</dl>
+<a asp-action="Index">Back to List</a>
