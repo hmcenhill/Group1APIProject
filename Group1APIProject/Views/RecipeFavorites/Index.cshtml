@@ -21,8 +21,8 @@
                 <td align="left">
                     @Html.DisplayFor(modelItem => item.Result.Title)
                 </td>
-                <td align="left">
-                    @Html.DisplayFor(modelItem => item.Result.Ingredients)
+                <td align="left">                    
+                    <a href="@Url.Content(item.Result.Href)" target="_blank">@Html.DisplayFor(modelItem => item.Result.Href)</a>
                 </td>
                 <td align="left">
                     <a asp-action="Details" asp-route-id="@item.RecipeFavoriteId">Details</a>
