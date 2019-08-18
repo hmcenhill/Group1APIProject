@@ -3,7 +3,7 @@
     ViewData["Title"] = "SearchResult";
 }
 
-<h1>SearchResult</h1>
+<h1>Recipes:</h1>
 
 
 
@@ -14,14 +14,14 @@
         {
         <tr>
             <td align="left">
-                <img src="@Url.Content(item.Thumbnail)"/>
+                <img src="@Url.Content(item.Thumbnail)" />
             </td>
             <td align="left">
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td align="left">
-                @Html.DisplayFor(modelItem => item.Ingredients)
-            </td>
+                <a href="@Url.Content(item.Href)" target="_blank">@Html.DisplayFor(modelItem => item.Href)</a>                
+            </td>            
             <td align="left">
                 @using (Html.BeginForm("AddFavorite", "RecipeFavorites", new { title = item.Title, ing = item.Ingredients, pic = item.Thumbnail, link = item.Href }))
                 {
