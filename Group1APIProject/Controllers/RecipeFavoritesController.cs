@@ -21,8 +21,7 @@ namespace Group1APIProject.Controllers
         // GET: RecipeFavorites
         public async Task<IActionResult> Index()
         {
-            var dataContext = _context.RecipeFavorites.Include(r => r.Result).Include(r => r.UserData);
-            //var dataContext = _context.RecipeFavorites.Where(x => x.UserData.UserName == User.Identity.Name);
+            var dataContext = _context.RecipeFavorites.Include(r => r.Result).Include(r => r.UserData).Where(x => x.UserData.UserName == User.Identity.Name);
             return View(await dataContext.ToListAsync());
         }
 
